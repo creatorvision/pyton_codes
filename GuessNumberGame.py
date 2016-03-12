@@ -3,6 +3,7 @@
 import random
 
 var = random.randint(1,100000)
+print(" Welcom to Number Guessing Game ")
 
 while 1:
 
