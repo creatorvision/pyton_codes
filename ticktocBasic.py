@@ -5,18 +5,16 @@
 
 import sys, traceback
 
-print(" 3x3 TIC TAC Games Begin")
+print(" 3x3 TIC TAC TOE Games Begin")
 print("\n\n please in your turn provide input in the format of \"x,y\" and name also in the format \"your-name\"")
 
 try:
 	player1 = input("Player1 input your name: ")
 	player2 = input("player2 input your name: ")
 except Exception:
-	print("ERROR")
-	if(isinstance(player1,basestring) or isinstance(player2,basestring)):
-		print("You have entered a non string value")
-		sys.exit(0) 
-	sys.exit(0)
+	print("ERROR: You have entered a non string or undesirable value \n\n")
+	sys.exit(0) 
+	
 
 win= False
 l=[[0,0,0],[0,0,0],[0,0,0]]
@@ -51,7 +49,10 @@ def draw(x,y):
 
 while win==False :
 
-	str1=input( player1+ " Your Turn : \n (Choose the x,y coordinates where you want to play your turn)")
+	try:
+		str1=input( player1+ " Your Turn : \n (Choose the x,y coordinates where you want to play your turn)")
+	except Exception:
+		print("ERROR: You have entered a non string or undesirable input \n\n")
 	player1x=int(str1[0])
 	player1y=int(str1[2])
 	#draw(player1x,player1y)
@@ -60,7 +61,10 @@ while win==False :
 		print(player1+ "Wins !")
 		break
 	else:
-		str2=input(player2+ " Your Turn : \n (Choose the x,y coordinates where you want to play your turn)")
+		try:
+			str2=input(player2+ " Your Turn : \n (Choose the x,y coordinates where you want to play your turn)")
+		except Exception:
+			print("ERROR: You have entered a non string or undesirable input \n\n")
 		player2x=int(str2[0])
 		player2y=int(str2[2])
 		#draw(player2x,player2y)
